@@ -1,0 +1,160 @@
+numbers = [3, 7, 2, 9, -5, 0, 4]
+
+#Початковий рівень
+# 1
+def sum_of_list(lst):
+    return sum(lst)
+print("1.Сума чисел:", sum_of_list(numbers))
+
+# 2
+def find_min(lst):
+    return min(lst)
+
+print("2. Мінімум у списку:", find_min(numbers))
+
+# 3
+def reverse_list(lst):
+    return lst[::-1]
+
+print("3.Перевернутий список:", reverse_list(numbers))
+
+
+# 4
+def odd_numbers(lst):
+    return [x for x in lst if x % 2 != 0]
+
+print("4. Непарні числа:", odd_numbers(numbers))
+
+# 5 (помножити список на 2)
+def multiply_list(lst):
+    return [x * 2 for x in lst]
+
+print("5. Помножений на 2 список:", multiply_list(numbers))
+
+
+#Легий рівень
+# 1
+
+def filter_greater(lst):
+    return [i for i in lst if i > 4]
+print("1. > x:", filter_greater(numbers))
+
+# 2
+def everage_positive(lst):
+    positive = [i for i in lst if i > 0]
+    return sum(positive) / len(positive) if positive else 0
+print("2. Середнє додатніх:", everage_positive(numbers))
+
+# 3
+def max_less(lst):
+    filtered = [i for i in lst if i < 7]
+    return max(filtered) if filtered else None
+print("3. Максимальне < x:", max_less(numbers))
+
+# 4
+def conditional_sum(lst):
+    return sum(i for i in lst if i % 2 == 0)
+
+print("4. Сума кратних 2:", conditional_sum(numbers))
+# кратні числа - 4 та 2. Сума чисел виходить 6. Якщо поставити число, якому мають
+# бути кратні - 1, сума виходить 20(сума всіх чисел списку). Якщо я правильно зрозумів завдання
+
+# 5
+number2 = [1, 2, 3, 4, 5]
+def list_of_squares(lst):
+    return [i ** 2 for i in lst]
+print("5. Квадрати:", list_of_squares(number2))
+
+# 6
+def extract_positive(lst):
+    return [i for i in lst if i > 0]
+print("6.Додатні числа:", extract_positive(numbers))
+
+# 7
+prefixes = ["pretest", "preload", "presentation", "postpone", "preview", "predict"]
+prefix = "pre"
+def filter_by_prefix(lst, prefix):
+    return [s for s in lst if s.startswith(prefix)]
+print("7. За префіксом:", filter_by_prefix(prefixes, prefix))
+# команда s.startswith та слова для префіксів зібрані за допомогою інтернету
+
+# 8
+def sum_first_4(lst):
+    return sum(lst[:4])
+print("8. Сума перших чотирьох цифр зі списку:", sum_first_4(numbers))
+
+# 9
+palindrome_words = ["level", "world", "deed", "python", "radar", "openai", "noon", "chat"]
+def palindromes(lst):
+    return [word for word in lst if word == word[::-1]]
+print("9. Паліндроми:", palindromes(palindrome_words))
+
+# 10
+def divisibility_check(lst):
+    return [x % 5 == 0 for x in lst]
+print("10. Подільність:", divisibility_check(numbers))
+# у результаті лише цифри 0 та -5 дідяться на дільник - п'ять.
+
+#Середній рівень
+# 1
+def filter_NotFilter(lst):
+    return [i for i in lst if i % 3 == 0 and i % 5 != 0]
+print("1:", filter_NotFilter(numbers))
+# числа 3 та 9 діляться на 3, проте не діляться на 5
+
+# 2
+lists = [[1, 2], [3, 4], [5]]
+def flatten_list(together_list):
+    return [item for sublist in together_list for item in sublist]
+print("2:", flatten_list(lists))
+
+# 3
+words2 = ["HeLLo", "WorLD", "PyTHon"]
+def extract_uppercase_substrings(lst):
+    return [''.join([c for c in s if c.isupper()]) for s in lst]
+print("3:", extract_uppercase_substrings(words2))
+# зробено за допомогою ШІ
+
+# 4
+number3 = [3, 1, 2, 3, 2, 1, 3]
+from collections import Counter
+def sort_by_value_and_frequency(lst):
+    freq = Counter(lst)
+    return sorted(lst, key=lambda x: (-x, -freq[x]))
+print("4:", sort_by_value_and_frequency(number3))
+# зробено за допомогою ШІ
+
+# 5
+a = [10, 30, 50]
+b = [20, 20, 60]
+def merge_lists_conditionally(lst1, lst2):
+    return [a if a > b else b for a, b in zip(lst1, lst2)]
+print("5:", merge_lists_conditionally(a, b))
+# Об'єднання двох списків за умовою того, яке число з пари більше. Тобто 10<20; 30>20; 50<60
+
+# 7
+def conditional_replace(lst, condition, replacement):
+    return [replacement if condition(x) else x for x in lst]
+print("7:", conditional_replace(numbers, lambda x: x > 4, 0))
+# Замінити цифри, що більше за 4 на нуль
+
+# 8
+strings = ["hello", "world", "hi", "openai"]
+def count_long_strings(lst, x):
+    return len([s for s in lst if len(s) > x])
+print("8:", count_long_strings(strings, 4))
+# підрахувати, скільки слів довже ніж чоитир літери. Відповідь: 3. Зроблено за допомогою ШІ
+
+# 9
+evens = [2, 4, 6, 8, 10]
+odds = [1, 3, 5, 9]
+def alternate_merge(lst1, lst2):
+    return [val for pair in zip(lst1, lst2) for val in pair]
+print("9:", alternate_merge(evens, odds))
+# зроблено за допомогою ШІ
+
+# 10
+def multiply_if(lst):
+    return [i * 2 if i > 4 else i for i in lst]
+print("10:", multiply_if(numbers))
+# помножити числа на 2, якщо вони більше за 4. Вивести список як з помножиними числами, так і з не помножиними
